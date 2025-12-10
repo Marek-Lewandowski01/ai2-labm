@@ -6,7 +6,7 @@ import {Task} from './task';
 @Injectable({
   providedIn: 'root',
 })
-export class Tasks {
+export class TasksService {
   private url = 'http://localhost:50031/todos';
 
   constructor(
@@ -15,7 +15,11 @@ export class Tasks {
   }
 
   public index(archived = false): Observable<Task[]> {
-    return this.http.get<Task[]>(this.url + (archived ? '?archived=true' : ''));
+    return this.http.get<Task[]>(this.url, {
+      params: {
+        archived: archived
+      }
+    });
   }
 
   public post(task: Task): Observable<Task> {

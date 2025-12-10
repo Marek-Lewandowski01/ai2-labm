@@ -11,8 +11,8 @@
       "id": "2",
       "title": "Hello Again World",
       "deadline": "2000-01-01",
-      "completed": false,
-      "archived": false
+      "completed": true,
+      "archived": true
     },
     {
       "title": "First Task",
@@ -26,7 +26,7 @@
       "title": "Nowe dodane zadanie",
       "deadline": "2025-12-31",
       "completed": true,
-      "archived": false
+      "archived": true
     }
   ]
 }

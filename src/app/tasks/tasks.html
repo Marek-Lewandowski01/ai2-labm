@@ -1,30 +1,42 @@
-<div class="container">
-  <h1>Backend-Based Task Manager</h1>
-  <div class="tasks-list">
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h3 class="mb-0">Backend-Based Task Manager</h3>
+    </div>
 
-    <div>tasks.length = {{ tasks?.length }}</div>
-    <pre>{{ tasks | json }}</pre>
+    <div class="card-body">
+      <!-- Lista zadań -->
+      <ul class="list-group list-group-flush">
 
+        @for (task of tasks; track task.id) {
+          <li class="list-group-item d-flex justify-content-between align-items-center">
 
-    @for (task of tasks; track task.id) {
-      <div class="task-row">
+            <div class="d-flex align-items-center">
+              <!-- Checkbox -->
+              <input class="form-check-input me-3" type="checkbox"
+                     [checked]="task.completed" disabled>
 
-        <input type="checkbox" [checked]="task.completed" disabled>
+              <!-- Tytuł -->
+              <span class="fw-bold"
+                    [class.text-decoration-line-through]="task.completed">
+                {{ task.title }}
+              </span>
+            </div>
 
-        <div class="task-info">
-          <span class="task-title">{{ task.title }}</span>
+            <!-- Data (Badge) -->
+            @if (task.deadline) {
+              <span class="badge rounded-pill text-bg-info">
+                {{ task.deadline }}
+              </span>
+            }
+          </li>
+        } @empty {
+          <div class="alert alert-warning text-center m-3" role="alert">
+            Brak zadań do wyświetlenia.
+          </div>
+        }
 
-          @if (task.deadline) {
-            <span class="task-date">{{ task.deadline }}</span>
-          }
-        </div>
-
-      </div>
-    } @empty {
-      <div class="empty-state">
-        Brak zadań do wyświetlenia.
-      </div>
-    }
-
+      </ul>
+    </div>
   </div>
 </div>

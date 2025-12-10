@@ -1,3 +1,43 @@
+<!-- FORMULARZ DODAWANIA NOWEGO ZADANIA -->
+<div class="card shadow-sm mb-4">
+  <div class="card-body bg-light">
+    <h5 class="card-title mb-3">Dodaj nowe zadanie</h5>
+
+    @if (errorMessage) {
+      <div class="alert alert-danger py-2 mb-3">
+        {{ errorMessage }}
+      </div>
+    }
+
+    <div class="row g-2">
+      <div class="col-md-7">
+        <input type="text"
+               class="form-control"
+               [class.is-invalid]="errorMessage"
+               placeholder="Co masz do zrobienia?"
+               [(ngModel)]="newTask.title"
+               name="title"
+               (input)="errorMessage = ''">
+      </div>
+
+      <div class="col-md-3">
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="newTask.deadline"
+               name="deadline">
+      </div>
+
+      <div class="col-md-2">
+        <button class="btn btn-success w-100" (click)="addTask()">
+          Dodaj
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- KONTENER NA ZADANIA -->
 <div class="container mt-5">
   <div class="card shadow-sm">
     <div class="card-header bg-primary text-white">

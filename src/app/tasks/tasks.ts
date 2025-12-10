@@ -13,6 +13,7 @@ import { TasksService } from '../TasksService';
 export class Tasks implements OnInit {
   tasks: Task[] = [];
   newTask: Task = {};
+  errorMessage = '';
 
   private tasksService = inject(TasksService);
   ngOnInit(): void {
@@ -26,4 +27,32 @@ export class Tasks implements OnInit {
       }
     });
   }
+
+  addTask(): void {
+    this.errorMessage = '';
+
+    if (!this.newTask.title || this.newTask.title.trim() === '') {
+      this.errorMessage = 'Tytuł zadania nie może być pusty.';
+      return;
+    }
+
+    this.newTask.completed = false;
+    this.newTask.archived = false;
+
+    this.tasksService.post(this.newTask).subscribe({
+      next: (createdTask: Task) => {
+        this.tasks.push(createdTask);
+        this.newTask = {};
+        this.errorMessage = '';
+      },
+      error: (err) => {
+        this.errorMessage = 'Błąd serwera!';
+        console.error('Błąd:', err);
+      }
+    })
+  }
+
+
+
+
 }

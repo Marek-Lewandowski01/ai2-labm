@@ -49,16 +49,20 @@
       <ul class="list-group list-group-flush">
 
         @for (task of tasks; track task.id) {
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item d-flex justify-content-between align-items-center"
+              [class.bg-light]="task.completed">
 
             <div class="d-flex align-items-center">
               <!-- Checkbox -->
-              <input class="form-check-input me-3" type="checkbox"
-                     [checked]="task.completed" disabled>
+              <input class="form-check-input me-3"
+                     type="checkbox"
+                     [(ngModel)]="task.completed"
+                     (change)="handleChange(task)">
 
               <!-- Tytuł -->
               <span class="fw-bold"
-                    [class.text-decoration-line-through]="task.completed">
+                    [class.text-decoration-line-through]="task.completed"
+                    [class.text-muted]="task.completed">
                 {{ task.title }}
               </span>
             </div>

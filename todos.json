@@ -25,7 +25,7 @@
       "id": "0897",
       "title": "Nowe dodane zadanie",
       "deadline": "2025-12-31",
-      "completed": false,
+      "completed": true,
       "archived": false
     }
   ]

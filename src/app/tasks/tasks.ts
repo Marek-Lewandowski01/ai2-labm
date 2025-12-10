@@ -9,6 +9,7 @@ import { TasksService } from '../TasksService';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './tasks.html',
+  styleUrl: './tasks.css'
 })
 export class Tasks implements OnInit {
   tasks: Task[] = [];
@@ -52,7 +53,15 @@ export class Tasks implements OnInit {
     })
   }
 
-
-
-
+  handleChange(task: Task): void {
+    this.tasksService.put(task).subscribe({
+      next: () => {
+        console.log('Zadanie zaktualizowane:', task.id);
+      },
+      error: (err) => {
+        console.error('Błąd:', err);
+        this.errorMessage = 'Nie udało się zapisać zmiany statusu.'
+      }
+    })
+  }
 }

@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:50031/todos
+
+### GET list of tasks
+GET {{baseUrl}}/
+Accept: application/json
+
+### POST new task
+POST {{baseUrl}}/
+Content-Type: application/json
+
+{
+  "id": "3",
+  "title": "First Task",
+  "deadline": "2030-01-01",
+  "completed": false,
+  "archived": false
+}
+
+### PUT mark task as completed
+PUT {{baseUrl}}/3
+Content-Type: application/json
+
+{
+  "title": "New task",
+  "deadline": "2030-01-01",
+  "completed": true,
+  "archived": false
+}
+
+### PUT mark task as archived
+PUT {{baseUrl}}/3
+Content-Type: application/json
+
+{
+  "title": "First Task",
+  "deadline": "2030-01-01",
+  "completed": true,
+  "archived": true
+}
+
+### DELETE task
+DELETE {{baseUrl}}/3
+Content-Type: application/json

@@ -6,27 +6,7 @@
       "deadline": "1900-01-01",
       "completed": false,
       "archived": false
-    },
-    {
-      "id": "2",
-      "title": "Hello Again World",
-      "deadline": "2000-01-01",
-      "completed": true,
-      "archived": true
-    },
-    {
-      "title": "First Task",
-      "deadline": "2030-01-01",
-      "completed": true,
-      "archived": true,
-      "id": "3"
-    },
-    {
-      "id": "0897",
-      "title": "Nowe dodane zadanie",
-      "deadline": "2025-12-31",
-      "completed": true,
-      "archived": true
     }
   ]
 }
+

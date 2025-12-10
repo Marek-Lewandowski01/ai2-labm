@@ -1,0 +1,46 @@
+<!-- KONTENER NA ARCHIWUM -->
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-secondary text-white">
+      <h3 class="mb-0">Archiwum zadań</h3>
+    </div>
+
+    <div class="card-body">
+      <!-- Lista zadań -->
+      <ul class="list-group list-group-flush">
+
+        @for (task of tasks; track task.id) {
+          <li class="list-group-item d-flex justify-content-between align-items-center bg-light">
+
+            <div class="d-flex align-items-center flex-grow-1">
+              <!-- Tytuł -->
+              <span class="fw-bold text-decoration-line-through text-muted">
+                {{ task.title }}
+              </span>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <!-- Data (Badge) -->
+              @if (task.deadline) {
+                <span class="badge rounded-pill text-bg-info">
+                  {{ task.deadline }}
+                </span>
+              }
+
+              <!-- Przycisk Delete -->
+              <button class="btn btn-danger btn-sm" (click)="delete(task)">
+                Delete
+              </button>
+            </div>
+          </li>
+        } @empty {
+          <div class="alert alert-info text-center m-3" role="alert">
+            Brak zarchiwizowanych zadań.
+          </div>
+        }
+
+      </ul>
+    </div>
+  </div>
+</div>
+

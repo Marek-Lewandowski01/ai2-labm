@@ -1,0 +1,12 @@
+.text-muted {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.btn-danger {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-danger:hover {
+  transform: scale(1.05);
+}

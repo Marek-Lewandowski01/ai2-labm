@@ -4,9 +4,15 @@
       "id": "1",
       "title": "Hello World",
       "deadline": "1900-01-01",
+      "completed": true,
+      "archived": true
+    },
+    {
+      "id": "63e1",
+      "title": "Zadanie z LabM",
+      "deadline": "2025-12-14",
       "completed": false,
       "archived": false
     }
   ]
 }
-

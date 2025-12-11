@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { Task } from '../task';
 import { TasksService } from '../TasksService';
 import { forkJoin } from 'rxjs';
@@ -8,7 +9,7 @@ import { forkJoin } from 'rxjs';
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatButtonModule],
   templateUrl: './tasks.html',
   styleUrl: './tasks.css',
 })

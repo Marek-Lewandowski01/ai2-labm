@@ -28,7 +28,7 @@
       </div>
 
       <div class="col-md-2">
-        <button mat-raised-button color="primary" class="w-100" (click)="addTask()">
+        <button mat-raised-button color="primary" class="w-100" (click)="addTask()" [disabled]="!canAddTask()">
           Dodaj
         </button>
       </div>
@@ -44,7 +44,7 @@
       <h3 class="mb-0">Backend-Based Task Manager</h3>
 
       <!-- Przycisk Archiwizacji -->
-      <button mat-flat-button color="warn" (click)="archiveCompleted()">
+      <button mat-flat-button color="warn" (click)="archiveCompleted()" [disabled]="!canArchiveCompleted()">
         Archiwizuj zakończone
       </button>
     </div>

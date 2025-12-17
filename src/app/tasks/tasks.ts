@@ -92,4 +92,14 @@ export class Tasks implements OnInit {
       },
     });
   }
+
+  canAddTask(): boolean {
+    return !!this.newTask.title && this.newTask.title.trim() !== '';
+  }
+
+  canArchiveCompleted(): boolean {
+    return this.tasks.some((t) => t.completed);
+  }
+
+
 }

@@ -3,32 +3,49 @@
   <div class="card-body bg-light">
     <h5 class="card-title mb-3">Dodaj nowe zadanie</h5>
 
-    @if (errorMessage) {
-      <div class="alert alert-danger py-2 mb-3">
-        {{ errorMessage }}
-      </div>
-    }
+    <div class="row g-2 align-items-center">
 
-    <div class="row g-2">
       <div class="col-md-7">
-        <input type="text"
-               class="form-control"
-               [class.is-invalid]="errorMessage"
-               placeholder="Co masz do zrobienia?"
-               [(ngModel)]="newTask.title"
-               name="title"
-               (input)="errorMessage = ''">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Co masz do zrobienia?</mat-label>
+
+          <input matInput
+                 [(ngModel)]="newTask.title"
+                 name="title"
+                 (input)="errorMessage = ''"
+                 placeholder="Np. Kupić mleko">
+
+          <mat-hint>Wpisz nazwę zadania</mat-hint>
+
+          @if (errorMessage) {
+            <mat-error>{{ errorMessage }}</mat-error>
+          }
+        </mat-form-field>
       </div>
 
       <div class="col-md-3">
-        <input type="date"
-               class="form-control"
-               [(ngModel)]="newTask.deadline"
-               name="deadline">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Termin</mat-label>
+
+          <input matInput
+                 [matDatepicker]="picker"
+                 [(ngModel)]="newTask.deadline"
+                 name="deadline">
+
+          <mat-hint>DD.MM.RRRR</mat-hint>
+
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </div>
 
       <div class="col-md-2">
-        <button mat-raised-button color="primary" class="w-100" (click)="addTask()" [disabled]="!canAddTask()">
+        <button mat-raised-button
+                color="primary"
+                class="w-100"
+                style="height: 56px; margin-bottom: 20px;"
+                (click)="addTask()"
+                [disabled]="!canAddTask()">
           Dodaj
         </button>
       </div>

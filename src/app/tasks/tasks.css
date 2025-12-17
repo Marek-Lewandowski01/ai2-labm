@@ -3,12 +3,12 @@
   height: 1.2em;
   margin-right: 1rem;
   cursor: pointer;
-  border: 2px solid #667eea;
+  border: 2px solid var(--mat-sys-primary);
 }
 
 .form-check-input:checked {
-  background-color: #764ba2;
-  border-color: #764ba2;
+  background-color: var(--mat-sys-primary);
+  border-color: var(--mat-sys-primary);
 }
 
 .text-muted {
@@ -17,18 +17,58 @@
 }
 
 .form-control {
-  border: 2px solid #667eea;
+  border: 2px solid var(--mat-sys-primary);
   padding: 0.5rem 1rem;
 }
 
 .form-control:focus {
-  border-color: #764ba2;
-  box-shadow: 0 0 0 0.25rem rgba(118, 75, 162, 0.25);
+  border-color: var(--mat-sys-tertiary);
+  box-shadow: 0 0 0 0.25rem var(--mat-sys-tertiary-container);
 }
 
 .completed-task {
-  background-color: #f8f9fa;
+  background-color: var(--mat-sys-surface-container-low);
   opacity: 0.8;
-  border-color: #e9ecef;
+  border-color: var(--mat-sys-outline-variant);
+}
+
+/* Enhanced Material Card Styling */
+mat-card {
+  transition: all 0.3s ease;
+  background: var(--mat-sys-surface-container);
+}
+
+mat-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+mat-card-content {
+  color: var(--mat-sys-on-surface);
+}
+
+/* Form field styling */
+mat-form-field {
+  --mdc-filled-text-field-container-color: var(--mat-sys-surface-container-high);
+  --mdc-filled-text-field-focus-label-text-color: var(--mat-sys-primary);
+}
+
+/* Button styling enhancements */
+button[mat-raised-button] {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+button[mat-raised-button]:hover:not([disabled]) {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+button[mat-flat-button] {
+  transition: all 0.3s ease;
+}
+
+button[mat-flat-button]:hover:not([disabled]) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 

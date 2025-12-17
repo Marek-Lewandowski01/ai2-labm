@@ -1,5 +1,6 @@
 .text-muted {
-  opacity: 0.5;
+  color: var(--mat-sys-outline);
+  opacity: 0.6;
   transition: opacity 0.3s;
 }
 
@@ -10,3 +11,13 @@
 .btn-danger:hover {
   transform: scale(1.05);
 }
+
+mat-card {
+  transition: all 0.3s ease;
+}
+
+mat-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+

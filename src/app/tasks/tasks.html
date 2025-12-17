@@ -58,11 +58,12 @@
               [class.bg-light]="task.completed">
 
             <div class="d-flex align-items-center">
-              <!-- Checkbox -->
-              <input class="form-check-input me-3"
-                     type="checkbox"
-                     [(ngModel)]="task.completed"
-                     (change)="handleChange(task)">
+              <mat-checkbox
+                  class="me-3"
+                  [(ngModel)]="task.completed"
+                  (change)="handleChange(task)"
+                  color="primary">
+              </mat-checkbox>
 
               <!-- Tytuł -->
               <span class="fw-bold"

@@ -1,12 +1,24 @@
-<header>
-  <div class="header-content">
-    <h1>MarekL LabL</h1>
-    <nav class="navigation">
-      <a routerLink="/tasks" routerLinkActive="active">Zadania</a>
-      <a routerLink="/archive" routerLinkActive="active">Archiwum</a>
-    </nav>
-  </div>
-</header>
+<mat-toolbar color="primary">
+  <span>MarekL LabL</span>
+
+  <div class="spacer"></div>
+
+  <mat-chip-listbox>
+    <a mat-chip-option
+       routerLink="/tasks"
+       routerLinkActive="selected-chip"
+       [selectable]="false">
+       Zadania
+    </a>
+
+    <a mat-chip-option
+       routerLink="/archive"
+       routerLinkActive="selected-chip"
+       [selectable]="false">
+       Archiwum
+    </a>
+  </mat-chip-listbox>
+</mat-toolbar>
 
 <div class="router-outlet">
   <router-outlet></router-outlet>

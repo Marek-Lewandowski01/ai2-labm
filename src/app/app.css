@@ -4,47 +4,50 @@
   height: 100vh;
 }
 
-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 1.5rem 2rem;
+mat-toolbar {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
 }
 
-.header-content {
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Style dla kontenera chipsów w toolbarze */
+mat-chip-listbox {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 0.5rem;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.navigation {
-  display: flex;
-  gap: 1rem;
-}
-
-.navigation a {
-  color: white;
+/* Bazowe style dla chipsów - efekt glassmorphism */
+a[mat-chip-option] {
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  transition: background-color 0.3s;
+  --mdc-chip-elevated-container-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
-.navigation a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+
+/* Hover effect */
+a[mat-chip-option]:hover {
+  --mdc-chip-elevated-container-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.navigation a.active {
-  background-color: rgba(255, 255, 255, 0.3);
-  font-weight: 600;
+/* Zaznaczony chip (aktywna strona) */
+.selected-chip {
+  --mdc-chip-elevated-container-color: rgba(255, 255, 255, 0.3) !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
 }
 
 .router-outlet {
@@ -64,11 +67,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  header, footer {
+  footer {
     padding: 1rem 1.5rem;
   }
 

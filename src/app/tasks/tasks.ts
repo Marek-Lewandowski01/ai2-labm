@@ -6,6 +6,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { Task } from '../task';
 import { TasksService } from '../TasksService';
@@ -21,7 +22,8 @@ import { forkJoin } from 'rxjs';
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatCardModule
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './tasks.html',

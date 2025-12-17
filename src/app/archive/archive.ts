@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { Task } from '../task';
 import { TasksService } from '../TasksService';
 
 @Component({
   selector: 'app-archive',
-  imports: [CommonModule, MatButtonModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule],
   templateUrl: './archive.html',
   styleUrl: './archive.css',
 })
